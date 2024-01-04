@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Alert from '../components/Alert';
-export default function Home() {
+import { getSortedPostsData } from '../lib/posts'
+
+export default function Home({ allPostsData }) {
   return (
     <Layout home={true}>
       <Head>
@@ -22,6 +24,36 @@ export default function Home() {
 
         </div>
       </section>
+      <section>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+          {
+            allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                {title}
+                <br />
+                {id}
+                <br />
+                {date}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
     </Layout>
   );
+}
+
+/** 
+ *  getStaticProps 仅在服务器端运行。它永远不会在客户端运行。
+ *  它甚至不会包含在浏览器的 JS 包中。
+ *  这意味着您可以编写直接数据库查询等代码，而无需将它们发送到浏览器。
+ */
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
 }
