@@ -47,6 +47,11 @@
   margin: 0 0 1.25rem;
 }
 
+.listTitle {
+  font-size: 20px;
+  color: rgb(47, 122, 197);
+}
+
 .lightText {
   color: #999;
 }

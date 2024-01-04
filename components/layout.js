@@ -38,7 +38,7 @@ export default function Layout({ children, home }) {
           <Link href="/posts/first-post">
 
             <img
-              src="https://medicineonline.oss-cn-hangzhou.aliyuncs.com/zhgg/202401021412923.png"
+              src="https://cdn.jsdelivr.net/gh/wardendon/wiki-image@main/img/202312211938122.png"
               className={`${styles.headerImage} ${utilStyles.borderCircle}`}
               alt={name}
             />

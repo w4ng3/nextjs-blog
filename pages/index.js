@@ -3,6 +3,8 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Alert from '../components/Alert';
 import { getSortedPostsData } from '../lib/posts'
+import Link from 'next/link';
+import Date from '../components/date';
 
 export default function Home({ allPostsData }) {
   return (
@@ -17,7 +19,7 @@ export default function Home({ allPostsData }) {
           <a href="https://www.nextjs.cn/learn" className={'bg-pink-400'}>our Next.js tutorial</a>.)
         </Alert>
 
-        <div className='w-[400px] h-[300px] bg-purple-300 flex'>
+        <div className='w-[400px] h-[30px] bg-purple-300 flex'>
           <div className='bg-pink-300 flex-1 self-end'>789</div>
           <div>123</div>
           <div className='bg-green-200'>456</div>
@@ -30,11 +32,12 @@ export default function Home({ allPostsData }) {
           {
             allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
-                {title}
-                <br />
-                {id}
-                <br />
-                {date}
+                <Link href={`/posts/${id}`} className={utilStyles.listTitle}>
+                  {title}
+                </Link>
+                <small className={utilStyles.lightText} style={{ float: 'right' }}>
+                  <Date dateString={date} />
+                </small>
               </li>
             ))
           }
