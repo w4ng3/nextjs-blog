@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = '王東'
+const name = 'wang dong'
 export const siteTitle = 'Nexy.js Sample Website'
 
 export default function Layout({ children, home }) {
@@ -31,7 +31,7 @@ export default function Layout({ children, home }) {
             className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
             alt={name}
           />
-          <h1 className={`${utilStyles.heading2Xl} bg-pink-300`}>{name}</h1>
+          <h1 className={`${utilStyles.heading2Xl}`}>{name}</h1>
         </>
       ) : (
         <>
