@@ -3,6 +3,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "dev-h": "next dev -H 192.168.50.146",
     "start": "next start"
   },
   "dependencies": {
